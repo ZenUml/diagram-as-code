@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SeqDiagram/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import vue from 'vue'
+import vuex from 'vuex'
+import {Store, SeqDiagram} from 'vue-sequence'
+import 'vue-sequence/dist/vue-sequence.css'
 
+vue.use(vuex)
+
+const store = new vuex.Store(Store)
 export default {
   name: 'App',
+  store,
   components: {
-    HelloWorld
+    SeqDiagram
   }
 }
 </script>

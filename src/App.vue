@@ -1,12 +1,14 @@
 <template>
-  <div id="app">
+  <div class="diagram-as-code">
     <splitpanes style="height: 400px">
-      <pane min-size="20"><codemirror
+      <pane min-size="20">
+        <codemirror
               ref="cmEditor"
               :value="code"
               :options="cmOptions"
               @input="onCmCodeChange"
-      /></pane>
+        />
+      </pane>
       <pane>
         <SeqDiagram/>
       </pane>
@@ -82,23 +84,22 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
 @import '~splitpanes/dist/splitpanes.css';
 
-#app {
+.diagram-as-code {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
-#app .CodeMirror-linenumber {
+.diagram-as-code .CodeMirror-linenumber {
   font-size: 1.2em;
 }
 
-#app .splitpanes__splitter {
+.diagram-as-code .splitpanes__splitter {
   width: 5px;
 }
-#app pre,
-#app .CodeMirror-gutter {
+.diagram-as-code .CodeMirror pre,
+.diagram-as-code .CodeMirror .CodeMirror-gutter {
   font-family: Menlo, 'Fira Code', Monaco, source-code-pro, "Ubuntu Mono", "DejaVu sans mono", Consolas, monospace;
 }
 </style>

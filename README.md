@@ -1,5 +1,35 @@
 # diagram-as-code
 
+The goal is to create a web component that wraps the editor and and viewer to be used by the
+confluence server plugin.
+
+It looks like this.
+
+### MVP 1 - ZenUML only
+```
+<diagram-as-code show-editor="false">
+//DSL
+A.method
+</diagram-as-code>
+```
+
+### MVP 2 - ZenUML + Mermaid
+```
+<diagram-as-code show-editor="false" diagram-type="mermaid">
+//DSL
+A-->B;
+</diagram-as-code>
+```
+
+### MVP 3 - ZenUML + Mermaid + Theme
+```
+<diagram-as-code show-editor="false" diagram-type="mermaid" theme="theme1">
+//DSL
+A-->B;
+</diagram-as-code>
+```
+
+
 ## Project setup
 ```
 yarn install

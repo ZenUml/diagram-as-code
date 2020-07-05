@@ -56,5 +56,9 @@ yarn lint
 2. Build the web component with `watch 'yarn build' src`
 3. Open the browser.
 
+#### Trouble-shooting
+
+https://stackoverflow.com/questions/51346334/npm-live-server-not-auto-reloading
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -84,7 +84,6 @@ export default {
 @import '~codemirror-theme-github/theme/github.css';
 @import '~codemirror/theme/monokai.css';
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
-@import '~splitpanes/dist/splitpanes.css';
 
 .diagram-as-code {
   font-family: Avenir, Helvetica, Arial, sans-serif;

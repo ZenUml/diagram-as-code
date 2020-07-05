@@ -1,4 +1,5 @@
 .idea
+.github
 
 public/
 
@@ -6,7 +7,6 @@ babel.config.js
 src/
 
 dist/diagram-as-code.js
-
 
 *.js.map
 *.log

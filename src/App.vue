@@ -8,7 +8,6 @@
 import vue from 'vue'
 import vuex from 'vuex'
 import {Store, SeqDiagram} from 'vue-sequence'
-import 'vue-sequence/dist/vue-sequence.css'
 
 vue.use(vuex)
 
@@ -23,6 +22,7 @@ export default {
 </script>
 
 <style>
+@import '~vue-sequence/dist/vue-sequence.css';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

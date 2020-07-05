@@ -7147,10 +7147,10 @@ split-string@^3.0.1, split-string@^3.0.2:
   dependencies:
     extend-shallow "^3.0.0"
 
-splitpanes@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/splitpanes/-/splitpanes-2.2.1.tgz#95c5824eb4033cd109a1a5d1a498765e2bde8c92"
-  integrity sha512-r7ypbW7IkH6yKUWpCbBqHdZcxI1PwEAMC3Yfeds+lJ0MpBGOl1mbTazXUK7gchUyVGmtq7paLin1YslLY5UhAQ==
+split.js@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/split.js/-/split.js-1.6.1.tgz#3bbe3bdd5ce9efa818bd1fa5264dd3b0590fae8e"
+  integrity sha512-xKeoVFzHvFE71Kyc1/hYZo0nWvxpnWFU045UGt+t7cBpbseJz3JAhcOI3+b4cwa/Earhpr3wplycePMYeHLxdA==
 
 sprintf-js@~1.0.2:
   version "1.0.3"

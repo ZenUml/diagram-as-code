@@ -1,18 +1,16 @@
 <template>
-  <div class="diagram-as-code">
-    <splitpanes style="height: 100%">
-      <pane min-size="20">
-        <codemirror
-              ref="cmEditor"
-              :value="code"
-              :options="cmOptions"
-              @input="onCmCodeChange"
-        />
-      </pane>
-      <pane>
-        <SeqDiagram/>
-      </pane>
-    </splitpanes>
+  <div class="diagram-as-code" :class="{noEditor: !showEditor}">
+    <div ref="left" class="split" v-show="showEditor">
+      <codemirror
+          ref="cmEditor"
+          :value="code"
+          :options="cmOptions"
+          @input="onCmCodeChange"
+      />
+    </div>
+    <div ref="right" class="split">
+      <SeqDiagram/>
+    </div>
 
   </div>
 </template>
@@ -22,7 +20,7 @@ import vue from 'vue'
 import vuex from 'vuex'
 import {Store, SeqDiagram} from 'vue-sequence'
 import {codemirror} from 'vue-codemirror'
-import {Splitpanes, Pane} from 'splitpanes'
+import Split from 'split.js'
 
 // import language js
 import 'codemirror/mode/javascript/javascript.js'
@@ -34,6 +32,7 @@ vue.use(vuex)
 const store = new vuex.Store(Store)
 export default {
   name: 'App',
+  props: ['showEditor'],
   data () {
     return {
       code: 'Example.method()',
@@ -66,12 +65,15 @@ export default {
       store.dispatch('updateCode', code)
       that.code = code
     })
+    if (this.showEditor) {
+      Split([this.$refs['left'], this.$refs['right']], { sizes: [35, 65]})
+    } else {
+      Split([this.$refs['left'], this.$refs['right']], { sizes: [0, 100]})
+    }
   },
   components: {
     SeqDiagram,
-    codemirror,
-    Splitpanes,
-    Pane
+    codemirror
   }
 }
 </script>
@@ -82,7 +84,6 @@ export default {
 @import '~codemirror-theme-github/theme/github.css';
 @import '~codemirror/theme/monokai.css';
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
-@import '~splitpanes/dist/splitpanes.css';
 
 .diagram-as-code {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -106,5 +107,35 @@ export default {
 .diagram-as-code .CodeMirror pre,
 .diagram-as-code .CodeMirror .CodeMirror-gutter {
   font-family: Menlo, 'Fira Code', Monaco, source-code-pro, "Ubuntu Mono", "DejaVu sans mono", Consolas, monospace;
+}
+
+.gutter {
+  background-color: #eee;
+
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  cursor: col-resize;
+  height: 100%;
+}
+.gutter.gutter-horizontal {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+}
+
+.noEditor>.gutter-horizontal {
+  display: none;
+}
+.split,
+.gutter.gutter-horizontal {
+  float: left;
+  height: 100%;
+}
+
+.split {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 </style>

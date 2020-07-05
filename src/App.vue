@@ -15,6 +15,12 @@ const store = new vuex.Store(Store)
 export default {
   name: 'App',
   store,
+  mounted() {
+    const that = this
+    setTimeout(() => {
+      store.dispatch('updateCode', that.$slots?.default?.[0]?.text || 'Example.method()')
+    })
+  },
   components: {
     SeqDiagram
   }

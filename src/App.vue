@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <codemirror
-            ref="cmEditor"
-            :value="code"
-            :options="cmOptions"
-            @input="onCmCodeChange"
-    />
-    <SeqDiagram/>
+    <splitpanes style="height: 400px">
+      <pane min-size="20"><codemirror
+              ref="cmEditor"
+              :value="code"
+              :options="cmOptions"
+              @input="onCmCodeChange"
+      /></pane>
+      <pane>
+        <SeqDiagram/>
+      </pane>
+    </splitpanes>
+
   </div>
 </template>
 
@@ -15,6 +20,7 @@ import vue from 'vue'
 import vuex from 'vuex'
 import {Store, SeqDiagram} from 'vue-sequence'
 import {codemirror} from 'vue-codemirror'
+import {Splitpanes, Pane} from 'splitpanes'
 
 // import language js
 import 'codemirror/mode/javascript/javascript.js'
@@ -61,7 +67,9 @@ export default {
   },
   components: {
     SeqDiagram,
-    codemirror
+    codemirror,
+    Splitpanes,
+    Pane
   }
 }
 </script>
@@ -72,6 +80,7 @@ export default {
 @import '~codemirror-theme-github/theme/github.css';
 @import '~codemirror/theme/monokai.css';
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
+@import '~splitpanes/dist/splitpanes.css';
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -85,6 +94,9 @@ export default {
   font-size: 1.2em;
 }
 
+#app .splitpanes__splitter {
+  width: 3px;
+}
 #app pre,
 #app .CodeMirror-gutter {
   font-family: Menlo, 'Fira Code', Monaco, source-code-pro, "Ubuntu Mono", "DejaVu sans mono", Consolas, monospace;

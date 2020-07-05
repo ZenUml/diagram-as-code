@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
+    "vue-codemirror": "^4.0.6",
     "vue-sequence": "^1.0.28",
     "vuex": "^3.4.0"
   },

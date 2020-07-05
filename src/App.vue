@@ -95,7 +95,7 @@ export default {
 }
 
 #app .splitpanes__splitter {
-  width: 3px;
+  width: 5px;
 }
 #app pre,
 #app .CodeMirror-gutter {

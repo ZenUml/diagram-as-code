@@ -4,8 +4,6 @@
             ref="cmEditor"
             :value="code"
             :options="cmOptions"
-            @ready="onCmReady"
-            @focus="onCmFocus"
             @input="onCmCodeChange"
     />
     <SeqDiagram/>
@@ -22,8 +20,6 @@ import {codemirror} from 'vue-codemirror'
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/addon/edit/closebrackets.js'
 
-// import theme style
-import 'codemirror/theme/base16-dark.css'
 
 vue.use(vuex)
 
@@ -32,11 +28,11 @@ export default {
   name: 'App',
   data () {
     return {
-      code: 'const a = 10',
+      code: 'Example.method()',
       cmOptions: {
         tabSize: 4,
         mode: 'text/javascript',
-        theme: 'base16-dark',
+        theme: 'monokai',
         lineNumbers: true,
         line: true,
         autoCloseBrackets: true,
@@ -45,15 +41,7 @@ export default {
     }
   },
   methods: {
-    onCmReady(cm) {
-      console.log('the editor is readied!', cm)
-    },
-    onCmFocus(cm) {
-      console.log('the editor is focused!', cm)
-    },
     onCmCodeChange(newCode) {
-      console.log('this is new code', newCode)
-      this.code = newCode
       store.dispatch('updateCode', newCode || 'Example.method()')
     }
   },
@@ -66,7 +54,9 @@ export default {
   mounted() {
     const that = this
     setTimeout(() => {
-      store.dispatch('updateCode', that.$slots?.default?.[0]?.text || 'Example.method()')
+      let code = that.$slots?.default?.[0]?.text || 'Example.method(1)'
+      store.dispatch('updateCode', code)
+      that.code = code
     })
   },
   components: {
@@ -79,6 +69,9 @@ export default {
 <style>
 @import '~vue-sequence/dist/vue-sequence.css';
 @import '~codemirror/lib/codemirror.css';
+@import '~codemirror-theme-github/theme/github.css';
+@import '~codemirror/theme/monokai.css';
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -86,5 +79,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#app .CodeMirror-linenumber {
+  font-size: 1.2em;
+}
+
+#app pre,
+#app .CodeMirror-gutter {
+  font-family: Menlo, 'Fira Code', Monaco, source-code-pro, "Ubuntu Mono", "DejaVu sans mono", Consolas, monospace;
 }
 </style>

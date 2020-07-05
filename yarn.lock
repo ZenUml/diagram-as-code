@@ -2261,6 +2261,11 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
+codemirror-theme-github@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/codemirror-theme-github/-/codemirror-theme-github-1.0.0.tgz#38fc48e629a0136721ece013b0bf87e51ebf3939"
+  integrity sha512-suheFec2wlI4klyqn61MOFXjjrKPZiNY7d2py0OvTd5Z+7AsNxoGKDaS/HI59y7EAG1SkkXW/JQ1Rt2gDMxHfA==
+
 codemirror@^5.41.0:
   version "5.55.0"
   resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.55.0.tgz#23731f641288f202a6858fdc878f3149e0e04363"

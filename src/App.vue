@@ -1,6 +1,6 @@
 <template>
   <div class="diagram-as-code">
-    <splitpanes style="height: 400px">
+    <splitpanes style="height: 100%">
       <pane min-size="20">
         <codemirror
               ref="cmEditor"
@@ -89,6 +89,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  height: 100%;
+}
+
+.diagram-as-code .CodeMirror {
+  height: 100%;
 }
 
 .diagram-as-code .CodeMirror-linenumber {

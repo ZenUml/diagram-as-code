@@ -1,6 +1,6 @@
 {
   "name": "diagram-as-code.js",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",

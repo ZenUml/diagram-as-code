@@ -29,6 +29,11 @@ A-->B;
 </diagram-as-code>
 ```
 
+The goal is to be able to be used on:
+1. Confluence Server (most simple case - MVP 1)
+2. Confluence Cloud (need to support coloring panel and mermaid)
+3. Web App / Chrome Extension (are we enabling coloring panel?)
+4. JetBrains Plugin (disable editor always, mermaid? coloring panel?)
 
 ## Project setup
 ```

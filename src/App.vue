@@ -81,7 +81,6 @@ export default {
 <style>
 @import '~vue-sequence/dist/vue-sequence.css';
 @import '~codemirror/lib/codemirror.css';
-@import '~codemirror-theme-github/theme/github.css';
 @import '~codemirror/theme/monokai.css';
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
 

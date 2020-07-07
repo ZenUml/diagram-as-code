@@ -82,7 +82,6 @@ export default {
 @import '~vue-sequence/dist/vue-sequence.css';
 @import '~codemirror/lib/codemirror.css';
 @import '~codemirror/theme/monokai.css';
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
 
 .diagram-as-code {
   font-family: Avenir, Helvetica, Arial, sans-serif;

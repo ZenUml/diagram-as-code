@@ -25,11 +25,10 @@ import Split from 'split.js'
 // import language js
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/addon/edit/closebrackets.js'
-
+import cloneDeep from './clone-deep'
 
 vue.use(vuex)
 
-const store = new vuex.Store(Store)
 export default {
   name: 'App',
   props: ['showEditor'],
@@ -49,7 +48,7 @@ export default {
   },
   methods: {
     onCmCodeChange(newCode) {
-      store.dispatch('updateCode', newCode || 'Example.method()')
+      this.$store.dispatch('updateCode', newCode || 'Example.method()')
     }
   },
   computed: {
@@ -57,13 +56,17 @@ export default {
       return this.$refs.cmEditor.codemirror
     }
   },
-  store,
+  store() {
+    return new vuex.Store(cloneDeep(Store))
+  },
   mounted() {
     const that = this
     setTimeout(() => {
       let code = that.$slots?.default?.[0]?.text || 'Example.method(1)'
-      store.dispatch('updateCode', code)
-      that.code = code
+      that.$store.dispatch('updateCode', code)
+      if (that.showEditor) {
+        that.code = code
+      }
     })
     if (this.showEditor) {
       Split([this.$refs['left'], this.$refs['right']], { sizes: [35, 65]})

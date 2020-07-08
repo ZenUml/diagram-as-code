@@ -10,8 +10,7 @@
   "repository": {
     "url": "https://github.com/ZenUml/diagram-as-code.git"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.10.4",
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -23,9 +22,9 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "split.js": "^1.6.1",
-    "vue-sequence": "^1.0.28",
     "vue": "^2.6.11",
     "vue-codemirror": "^4.0.6",
+    "vue-sequence": "^1.0.33",
     "vue-template-compiler": "^2.6.11",
     "vuex": "^3.4.0"
   },

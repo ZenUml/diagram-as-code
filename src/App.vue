@@ -3,7 +3,7 @@
     <div ref="left" class="split" v-show="showEditor">
       <codemirror
           ref="cmEditor"
-          :value="code"
+          :code="code"
           :options="cmOptions"
           @input="onCmCodeChange"
       />
@@ -34,7 +34,6 @@ export default {
   props: ['showEditor'],
   data () {
     return {
-      code: 'Example.method()',
       cmOptions: {
         tabSize: 4,
         mode: 'text/javascript',
@@ -54,6 +53,9 @@ export default {
   computed: {
     codemirror() {
       return this.$refs.cmEditor.codemirror
+    },
+    code() {
+      return this.$store.state.code
     }
   },
   store() {

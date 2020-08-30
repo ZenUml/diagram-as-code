@@ -7916,10 +7916,10 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-sequence@^1.0.33:
-  version "1.0.33"
-  resolved "https://registry.yarnpkg.com/vue-sequence/-/vue-sequence-1.0.33.tgz#e987b87c2d131ae853435f0af6ce39f012eb6cc0"
-  integrity sha512-ig6nUxpss054M6e+bU94aDLF3BYzBYsK+GDCDODr62qy8eeP1AAc/MVn8pUdl7lTLkcgWSnB1nJmA36voltGPQ==
+vue-sequence@^1.0.34:
+  version "1.0.34"
+  resolved "https://registry.yarnpkg.com/vue-sequence/-/vue-sequence-1.0.34.tgz#301d3b461aca29b45382ceb1c22c5b9fe54fd456"
+  integrity sha512-fikreIdiCgLlTBldodhC/fPM1pEdlmw58jUfTrgBu/NUgZl65gjpa3OAPT/wXmowAR+Nk1IZLGe7ZnYLsmsMBQ==
   dependencies:
     antlr4 "^4.8.0"
     highlight.js "^10.1.1"

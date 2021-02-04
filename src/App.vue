@@ -6,6 +6,7 @@
           :code="dsl"
           :options="cmOptions"
           @input="onCmCodeChange"
+
       />
     </div>
     <div ref="right" class="split">
@@ -69,6 +70,17 @@ export default {
     })
     if (this.showEditor) {
       Split([this.$refs['left'], this.$refs['right']], { sizes: [35, 65]})
+      this.codemirror.on('cursorActivity', () => {
+        const cursor = that.codemirror.getCursor();
+        const line = cursor.line;
+        let pos = cursor.ch;
+
+        for (let i = 0; i < line; i++) {
+          pos += that.codemirror.getLine(i).length + 1
+        }
+
+        that.$store.state.cursor = pos
+      })
     } else {
       Split([this.$refs['left'], this.$refs['right']], { sizes: [0, 100]})
     }

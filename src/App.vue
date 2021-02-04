@@ -3,7 +3,7 @@
     <div ref="left" class="split" v-show="showEditor">
       <codemirror
           ref="cmEditor"
-          :code="code"
+          :code="dsl"
           :options="cmOptions"
           @input="onCmCodeChange"
       />
@@ -11,21 +11,19 @@
     <div ref="right" class="split">
       <SeqDiagram/>
     </div>
-
   </div>
 </template>
 
 <script>
 import vue from 'vue'
 import vuex from 'vuex'
-import {Store, SeqDiagram} from 'vue-sequence'
+import {Store, SeqDiagram, BuildTime, Version} from 'vue-sequence'
 import {codemirror} from 'vue-codemirror'
 import Split from 'split.js'
 
 // import language js
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/addon/edit/closebrackets.js'
-import cloneDeep from './clone-deep'
 
 vue.use(vuex)
 
@@ -34,6 +32,8 @@ export default {
   props: ['showEditor'],
   data () {
     return {
+      BuildTime: BuildTime,
+      Version: Version,
       cmOptions: {
         tabSize: 4,
         mode: 'text/javascript',
@@ -54,21 +54,18 @@ export default {
     codemirror() {
       return this.$refs.cmEditor.codemirror
     },
-    code() {
+    dsl() {
       return this.$store.state.code
     }
   },
   store() {
-    return new vuex.Store(cloneDeep(Store))
+    return new vuex.Store(Store())
   },
   mounted() {
     const that = this
     setTimeout(() => {
       let code = that.$slots?.default?.[0]?.text || 'Example.method(1)'
       that.$store.dispatch('updateCode', code)
-      if (that.showEditor) {
-        that.code = code
-      }
     })
     if (this.showEditor) {
       Split([this.$refs['left'], this.$refs['right']], { sizes: [35, 65]})

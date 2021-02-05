@@ -147,5 +147,6 @@ export default {
 
 .split {
   box-sizing: border-box;
+  overflow: scroll;
 }
 </style>

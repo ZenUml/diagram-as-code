@@ -7921,10 +7921,10 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-sequence@^1.0.87:
-  version "1.0.87"
-  resolved "https://registry.yarnpkg.com/vue-sequence/-/vue-sequence-1.0.87.tgz#f3d65feb93b4a8f1db3dd097bcb5f664005f2bfb"
-  integrity sha512-5L8x3m0LNEDwPAZ9sKQKafK4PBQz8/erVAKMsUtAoJwEvQ7LdMwqxBIlZFeLY3Jr9DRjmf1OPg9qR8jngu9B7A==
+vue-sequence@^1.0.88:
+  version "1.0.88"
+  resolved "https://registry.yarnpkg.com/vue-sequence/-/vue-sequence-1.0.88.tgz#ac04a7ca274f50da09b9345919810e3b75f845a3"
+  integrity sha512-f8bjwP5Ir6nkmdOfWwYk63JNHIUCMrSC6XyGM/d2FT5rw7oZSs18/ZTdg7roVgkIwyjPXfrfhrZ9cr+PV2w5xQ==
   dependencies:
     antlr4 "~4.8.0"
     dom-to-image-more "^2.8.0"

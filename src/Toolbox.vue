@@ -32,10 +32,14 @@ export default {
 
   .toolbox>div {
     width: 20%;
-    padding: 12px 0;
+    padding: 12px 0 2px 0;
     float: left;
     transition: all 0.3s ease;
     color: white;
+  }
+
+  .toolbox>div>label {
+    display: none;
   }
 
   .toolbox>div:hover {

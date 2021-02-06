@@ -29,12 +29,10 @@
     name: 'Participant',
     methods: {
       onClickHandler() {
-        /* eslint-disable */
-        console.log('participant clicked')
         const lines = this.$store.state.code.split('\n');
         const leadingCommentLines = until(lines, line => !isEmpty(line) && !isComment(line));
         const remainingLines = lines.slice(leadingCommentLines.length)
-        const all = leadingCommentLines.concat(['NewParticipant']).concat(remainingLines);
+        const all = leadingCommentLines.concat(['<<Participant>> NewParticipant']).concat(remainingLines);
         const result = all.join('\n');
         this.$store.dispatch('updateCode', result);
 

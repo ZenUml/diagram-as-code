@@ -1,18 +1,10 @@
 <template>
   <div>
-    <svg v-on:click="onClickHandler()"
-         width="20px" height="20px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <title>Async message</title>
-      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Message-Copy">
-          <path d="M40.5,5 L40.5,47" id="Line" stroke="#202020" stroke-linecap="square" stroke-dasharray="5"></path>
-          <path d="M11.6315789,20 L37,20" id="Line-2" stroke="#202020" stroke-width="2" stroke-linecap="square"></path>
-          <path d="M31.9736842,13.7258398 L37.5869926,25.0263158 L26.3603759,25.0263158 L31.9736842,13.7258398 Z" id="Triangle" stroke="#202020" stroke-width="2" transform="translate(31.973684, 20.000000) rotate(90.000000) translate(-31.973684, -20.000000) "></path>
-          <path d="M9.5,5 L9.5,47" id="Line" stroke="#202020" stroke-linecap="square" stroke-dasharray="5"></path>
-          <rect id="Rectangle" fill="#FFFFFF" x="25" y="13" width="3" height="6"></rect>
-          <rect id="Rectangle" fill="#FFFFFF" x="25" y="21" width="3" height="6"></rect>
-        </g>
-      </g>
+    <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.2001 1V17.8" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="2 2"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.800049 1V17.8Z" fill="#FFFFFF"/>
+      <path d="M0.800049 1V17.8" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="2 2"/>
+      <path d="M12.4596 8.45962C12.7135 8.20578 12.7135 7.79422 12.4596 7.54038L8.32304 3.40381C8.0692 3.14997 7.65765 3.14997 7.40381 3.40381C7.14997 3.65765 7.14997 4.0692 7.40381 4.32304L11.0808 8L7.40381 11.677C7.14997 11.9308 7.14997 12.3424 7.40381 12.5962C7.65765 12.85 8.0692 12.85 8.32304 12.5962L12.4596 8.45962ZM2 8.65L12 8.65V7.35L2 7.35L2 8.65Z" fill="white"/>
     </svg>
   </div>
 </template>

@@ -13,8 +13,32 @@
 </template>
 
 <script>
+  function until(arr, fn) {
+    const l = arr.length;
+    let i = 0;
+    while (i < l && !fn(arr[i])) {
+      i++;
+    }
+    return arr.slice(0, i);
+  }
+
+  const isEmpty = str => !str || str.trim() === '';
+  const isComment = (line) => line && line.trim().startsWith('//');
+
   export default {
     name: 'Participant',
-    props: ['onClickHandler']
+    methods: {
+      onClickHandler() {
+        /* eslint-disable */
+        console.log('participant clicked')
+        const lines = this.$store.state.code.split('\n');
+        const leadingCommentLines = until(lines, line => !isEmpty(line) && !isComment(line));
+        const remainingLines = lines.slice(leadingCommentLines.length)
+        const all = leadingCommentLines.concat(['NewParticipant']).concat(remainingLines);
+        const result = all.join('\n');
+        this.$store.dispatch('updateCode', result);
+
+      }
+    }
   }
 </script>

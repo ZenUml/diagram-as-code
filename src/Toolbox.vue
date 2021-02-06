@@ -1,7 +1,7 @@
 <template>
   <div class="toolbox">
-    <participant :on-click-handler="onParticipantClick"/>
-    <async-message :on-click-handler="onAsyncMessageClick"/>
+    <participant/>
+    <async-message/>
   </div>
 </template>
 
@@ -14,16 +14,6 @@ export default {
   components: {
     Participant,
     AsyncMessage
-  },
-  methods: {
-    onParticipantClick() {
-      /* eslint-disable */
-      console.log('participant click...')
-    },
-    onAsyncMessageClick() {
-      /* eslint-disable */
-      console.log('async message click...')
-    }
   }
 }
 </script>

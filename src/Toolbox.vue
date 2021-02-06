@@ -5,6 +5,9 @@
     <sync-message/>
     <self-sync-message/>
     <creation/>
+    <fragment-alt/>
+    <fragment-loop/>
+    <fragment-par/>
   </div>
 </template>
 
@@ -14,6 +17,9 @@ import AsyncMessage from './Toolbox/AsyncMessage'
 import SyncMessage from './Toolbox/SyncMessage'
 import SelfSyncMessage from './Toolbox/SelfSyncMessage'
 import Creation from './Toolbox/Creation'
+import FragmentAlt from './Toolbox/FragmentAlt'
+import FragmentLoop from './Toolbox/FragmentLoop'
+import FragmentPar from './Toolbox/FragmentPar'
 
 export default {
   name: 'App',
@@ -22,7 +28,10 @@ export default {
     AsyncMessage,
     SyncMessage,
     SelfSyncMessage,
-    Creation
+    Creation,
+    FragmentAlt,
+    FragmentLoop,
+    FragmentPar
   }
 }
 </script>

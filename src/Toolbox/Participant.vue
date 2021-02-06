@@ -9,7 +9,7 @@
         </g>
       </g>
     </svg>
-    Participant
+    <label>Participant</label>
   </div>
 </template>
 
@@ -36,7 +36,6 @@
         const all = leadingCommentLines.concat(['<<Participant>> NewParticipant']).concat(remainingLines);
         const result = all.join('\n');
         this.$store.dispatch('updateCode', result);
-
       }
     }
   }

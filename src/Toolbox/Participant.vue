@@ -9,6 +9,7 @@
         </g>
       </g>
     </svg>
+    Participant
   </div>
 </template>
 

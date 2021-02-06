@@ -3,6 +3,8 @@
     <participant/>
     <async-message/>
     <sync-message/>
+    <self-sync-message/>
+    <creation/>
   </div>
 </template>
 
@@ -10,13 +12,17 @@
 import Participant from './Toolbox/Participant'
 import AsyncMessage from './Toolbox/AsyncMessage'
 import SyncMessage from './Toolbox/SyncMessage'
+import SelfSyncMessage from './Toolbox/SelfSyncMessage'
+import Creation from './Toolbox/Creation'
 
 export default {
   name: 'App',
   components: {
     Participant,
     AsyncMessage,
-    SyncMessage
+    SyncMessage,
+    SelfSyncMessage,
+    Creation
   }
 }
 </script>

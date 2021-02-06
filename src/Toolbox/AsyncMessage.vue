@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg v-on:click="appendCode('A->B:message')"
+    <svg v-on:click="onClickHandler()"
          width="20px" height="20px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <title>Async message</title>
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -19,6 +19,7 @@
 
 <script>
   export default {
-    name: 'Participant'
+    name: 'AsyncMessage',
+    props: ['onClickHandler']
   }
 </script>

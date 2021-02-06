@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
-/dist
+/dist/diagram-as-code.js
+/dist/diagram-as-code.js.map
+/dist/diagram-as-code.min.js.map
 
 # local env files
 .env.local

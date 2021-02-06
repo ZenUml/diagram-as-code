@@ -2,18 +2,21 @@
   <div class="toolbox">
     <participant/>
     <async-message/>
+    <sync-message/>
   </div>
 </template>
 
 <script>
 import Participant from './Toolbox/Participant'
 import AsyncMessage from './Toolbox/AsyncMessage'
+import SyncMessage from './Toolbox/SyncMessage'
 
 export default {
   name: 'App',
   components: {
     Participant,
-    AsyncMessage
+    AsyncMessage,
+    SyncMessage
   }
 }
 </script>

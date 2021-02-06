@@ -17,7 +17,8 @@
     name: 'AsyncMessage',
     methods: {
       onClickHandler() {
-        this.$store.dispatch('updateCode', this.$store.state.code + '\n' + 'A.Method()');
+        let newCode = this.$store.state.code + '\n' + 'ret = A.Method()'
+        this.$store.dispatch('updateCode', newCode);
       }
     }
   }

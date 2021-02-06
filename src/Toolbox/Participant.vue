@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg width="20px" height="20px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg v-on:click="onClickHandler()" width="20px" height="20px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <title>New participant</title>
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Participant-Copy" stroke="#202020">
@@ -14,6 +14,7 @@
 
 <script>
   export default {
-    name: 'Participant'
+    name: 'Participant',
+    props: ['onClickHandler']
   }
 </script>

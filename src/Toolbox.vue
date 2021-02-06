@@ -1,6 +1,6 @@
 <template>
   <div class="toolbox">
-    <participant/>
+    <participant :on-click-handler="onParticipantClick"/>
     <async-message/>
   </div>
 </template>
@@ -14,6 +14,12 @@ export default {
   components: {
     Participant,
     AsyncMessage
+  },
+  methods: {
+    onParticipantClick() {
+      /* eslint-disable */
+      console.log('participant click...')
+    }
   }
 }
 </script>

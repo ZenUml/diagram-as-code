@@ -17,7 +17,7 @@
     name: 'SelfSyncMessage',
     methods: {
       onClickHandler() {
-        let newCode = this.$store.state.code + '\n' + 'ret = Method()'
+        let newCode = this.$store.state.code + '\n' + 'A.Method() {\n  ret = SelfMethod()\n}\n'
         this.$store.dispatch('updateCode', newCode);
       }
     }

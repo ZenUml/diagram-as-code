@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div v-on:click="onClickHandler()">
     <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>Async Message</title>
       <path d="M13.2001 1V17.8" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="2 2"/>
       <path fill-rule="evenodd" clip-rule="evenodd" d="M0.800049 1V17.8Z" fill="#FFFFFF"/>
       <path d="M0.800049 1V17.8" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="2 2"/>
@@ -13,6 +14,11 @@
 <script>
   export default {
     name: 'AsyncMessage',
-    props: ['onClickHandler']
+    methods: {
+      onClickHandler() {
+        this.$store.dispatch('updateCode', this.$store.state.code + '\n' + 'A->B: Message');
+      }
+    }
+
   }
 </script>

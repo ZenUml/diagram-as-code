@@ -1,12 +1,12 @@
 <template>
   <div class="diagram-as-code" :class="{noEditor: !showEditor}">
     <div ref="left" class="split" v-show="showEditor">
+      <toolbox/>
       <codemirror
           ref="cmEditor"
           :code="dsl"
           :options="cmOptions"
           @input="onCmCodeChange"
-
       />
     </div>
     <div ref="right" class="split">
@@ -21,6 +21,7 @@ import vuex from 'vuex'
 import {Store, SeqDiagram, BuildTime, Version} from 'vue-sequence'
 import {codemirror} from 'vue-codemirror'
 import Split from 'split.js'
+import Toolbox from './Toolbox'
 
 // import language js
 import 'codemirror/mode/javascript/javascript.js'
@@ -87,7 +88,8 @@ export default {
   },
   components: {
     SeqDiagram,
-    codemirror
+    codemirror,
+    Toolbox
   }
 }
 </script>

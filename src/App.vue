@@ -28,7 +28,9 @@ import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/addon/edit/closebrackets.js'
 
 vue.use(vuex)
+const storeConfig = Store()
 
+const EventBus = new vue()
 export default {
   name: 'App',
   props: ['showEditor'],
@@ -36,6 +38,7 @@ export default {
     return {
       BuildTime: BuildTime,
       Version: Version,
+      mark: undefined,
       cmOptions: {
         tabSize: 4,
         mode: 'text/javascript',
@@ -61,10 +64,23 @@ export default {
     }
   },
   store() {
-    return new vuex.Store(Store())
+    storeConfig.state.onElementClick = (codeRange) => {
+      EventBus.$emit('highlight', codeRange)
+    }
+    return new vuex.Store(storeConfig)
   },
   mounted() {
     const that = this
+    EventBus.$on('highlight', (codeRange) => {
+      if (this.mark) {
+        this.mark.clear()
+      }
+      this.mark = this.codemirror.markText({
+        line: codeRange.start.line-1, ch: codeRange.start.col
+      }, {
+        line: codeRange.stop.line-1, ch: codeRange.stop.col
+      }, {css: 'background: gray'})
+    })
     setTimeout(() => {
       let code = that.$slots?.default?.[0]?.text || 'Example.method(1)'
       that.$store.dispatch('updateCode', code)
@@ -72,6 +88,9 @@ export default {
     if (this.showEditor) {
       Split([this.$refs['left'], this.$refs['right']], { sizes: [35, 65]})
       this.codemirror.on('cursorActivity', () => {
+        if (this.mark) {
+          this.mark.clear()
+        }
         const cursor = that.codemirror.getCursor();
         const line = cursor.line;
         let pos = cursor.ch;

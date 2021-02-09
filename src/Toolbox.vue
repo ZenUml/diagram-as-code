@@ -22,7 +22,7 @@ import FragmentLoop from './Toolbox/FragmentLoop'
 import FragmentPar from './Toolbox/FragmentPar'
 
 export default {
-  name: 'App',
+  name: 'Toolbox',
   components: {
     Participant,
     AsyncMessage,

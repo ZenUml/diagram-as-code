@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     onCmCodeChange(newCode) {
-      this.$store.dispatch('updateCode', newCode || 'Example.method()')
+      this.$store.dispatch('updateCode', newCode)
     }
   },
   computed: {

@@ -22,6 +22,7 @@ import {Store, SeqDiagram, BuildTime, Version} from 'vue-sequence'
 import {codemirror} from 'vue-codemirror'
 import Split from 'split.js'
 import Toolbox from './Toolbox'
+import _ from 'lodash'
 
 // import language js
 import 'codemirror/mode/javascript/javascript.js'
@@ -52,7 +53,14 @@ export default {
   },
   methods: {
     onCmCodeChange(newCode) {
-      this.$store.dispatch('updateCode', newCode)
+      const cursor = this.codemirror.getCursor();
+      const line = cursor.line;
+      let pos = cursor.ch;
+
+      for (let i = 0; i < line; i++) {
+        pos += this.codemirror.getLine(i).length + 1
+      }
+      this.$store.dispatch('updateCode', {code: newCode, cursor: pos })
     }
   },
   computed: {
@@ -83,11 +91,11 @@ export default {
     })
     setTimeout(() => {
       let code = that.$slots?.default?.[0]?.text || 'Example.method(1)'
-      that.$store.dispatch('updateCode', code)
+      that.$store.dispatch('updateCode', {code})
     })
     if (this.showEditor) {
       Split([this.$refs['left'], this.$refs['right']], { sizes: [35, 65]})
-      this.codemirror.on('cursorActivity', () => {
+      this.codemirror.on('cursorActivity',_.debounce(() => {
         if (this.mark) {
           this.mark.clear()
         }
@@ -98,9 +106,9 @@ export default {
         for (let i = 0; i < line; i++) {
           pos += that.codemirror.getLine(i).length + 1
         }
-
+        console.log('update cursor', pos)
         that.$store.state.cursor = pos
-      })
+      }, 500))
     } else {
       Split([this.$refs['left'], this.$refs['right']], { sizes: [0, 100]})
     }

@@ -106,7 +106,6 @@ export default {
         for (let i = 0; i < line; i++) {
           pos += that.codemirror.getLine(i).length + 1
         }
-        console.log('update cursor', pos)
         that.$store.state.cursor = pos
       }, 500))
     } else {

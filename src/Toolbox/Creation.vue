@@ -19,7 +19,7 @@
     methods: {
       onClickHandler() {
         let newCode = this.$store.state.code + '\n' + 'a = new A()'
-        this.$store.dispatch('updateCode', newCode);
+        this.$store.dispatch('updateCode', {code: newCode});
       }
     }
   }

@@ -35,7 +35,7 @@
         const remainingLines = lines.slice(leadingCommentLines.length)
         const all = leadingCommentLines.concat(['<<Participant>> NewParticipant']).concat(remainingLines);
         const result = all.join('\n');
-        this.$store.dispatch('updateCode', result);
+        this.$store.dispatch('updateCode', {code: result});
       }
     }
   }

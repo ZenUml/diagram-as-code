@@ -16,7 +16,7 @@
     name: 'AsyncMessage',
     methods: {
       onClickHandler() {
-        this.$store.dispatch('updateCode', this.$store.state.code + '\n' + 'A->B: Message');
+        this.$store.dispatch('updateCode', {code: this.$store.state.code + '\n' + 'A->B: Message'});
       }
     }
 

@@ -136,6 +136,7 @@ export default {
   height: 100%;
 }
 
+.diagram-as-code .vue-codemirror,
 .diagram-as-code .CodeMirror {
   height: 100%;
 }

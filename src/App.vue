@@ -52,12 +52,15 @@ export default {
   },
   methods: {
     onCmCodeChange(newCode) {
-      const cursor = this.codemirror.getCursor();
-      const line = cursor.line;
-      let pos = cursor.ch;
+      let pos = undefined;
+      if (this.showEditor) {
+        const cursor = this.codemirror.getCursor();
+        const line = cursor.line;
+        pos = cursor.ch;
 
-      for (let i = 0; i < line; i++) {
-        pos += this.codemirror.getLine(i).length + 1
+        for (let i = 0; i < line; i++) {
+          pos += this.codemirror.getLine(i).length + 1
+        }
       }
       this.$store.dispatch('updateCode', {code: newCode, cursor: pos })
     }

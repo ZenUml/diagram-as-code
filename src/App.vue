@@ -29,7 +29,6 @@ import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/addon/edit/closebrackets.js'
 
 vue.use(vuex)
-const storeConfig = Store()
 
 const EventBus = new vue()
 export default {
@@ -72,6 +71,7 @@ export default {
     }
   },
   store() {
+    const storeConfig = Store()
     storeConfig.state.onElementClick = (codeRange) => {
       EventBus.$emit('highlight', codeRange)
     }
@@ -130,7 +130,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  height: 100%;
+  height: 50%;
 }
 
 .diagram-as-code .CodeMirror {

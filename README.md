@@ -58,7 +58,7 @@ yarn lint
 ### Test the web component locally
 
 1. Install `live-server` with `npm install -g live-server`
-2. Build the web component with `watch 'yarn build' src`
+2. Build the web component with `watch 'yarn build && cp public/demo.html dist' src`
 3. Open the browser.
 
 #### Trouble-shooting

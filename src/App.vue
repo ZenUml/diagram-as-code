@@ -22,6 +22,7 @@ import {Store, SeqDiagram, BuildTime, Version} from 'vue-sequence'
 import {codemirror} from 'vue-codemirror'
 import Split from 'split.js'
 import Toolbox from './Toolbox'
+import _ from 'lodash'
 
 // import language js
 import 'codemirror/mode/javascript/javascript.js'
@@ -29,6 +30,7 @@ import 'codemirror/addon/edit/closebrackets.js'
 
 vue.use(vuex)
 
+const EventBus = new vue()
 export default {
   name: 'App',
   props: ['showEditor'],
@@ -36,6 +38,7 @@ export default {
     return {
       BuildTime: BuildTime,
       Version: Version,
+      mark: undefined,
       cmOptions: {
         tabSize: 4,
         mode: 'text/javascript',
@@ -49,7 +52,17 @@ export default {
   },
   methods: {
     onCmCodeChange(newCode) {
-      this.$store.dispatch('updateCode', newCode || 'Example.method()')
+      let pos = undefined;
+      if (this.showEditor) {
+        const cursor = this.codemirror.getCursor();
+        const line = cursor.line;
+        pos = cursor.ch;
+
+        for (let i = 0; i < line; i++) {
+          pos += this.codemirror.getLine(i).length + 1
+        }
+      }
+      this.$store.dispatch('updateCode', {code: newCode, cursor: pos })
     }
   },
   computed: {
@@ -61,17 +74,34 @@ export default {
     }
   },
   store() {
-    return new vuex.Store(Store())
+    const storeConfig = Store()
+    storeConfig.state.onElementClick = (codeRange) => {
+      EventBus.$emit('highlight', codeRange)
+    }
+    return new vuex.Store(storeConfig)
   },
   mounted() {
     const that = this
+    EventBus.$on('highlight', (codeRange) => {
+      if (this.mark) {
+        this.mark.clear()
+      }
+      this.mark = this.codemirror.markText({
+        line: codeRange.start.line-1, ch: codeRange.start.col
+      }, {
+        line: codeRange.stop.line-1, ch: codeRange.stop.col
+      }, {css: 'background: gray'})
+    })
     setTimeout(() => {
       let code = that.$slots?.default?.[0]?.text || 'Example.method(1)'
-      that.$store.dispatch('updateCode', code)
+      that.$store.dispatch('updateCode', {code})
     })
     if (this.showEditor) {
       Split([this.$refs['left'], this.$refs['right']], { sizes: [35, 65]})
-      this.codemirror.on('cursorActivity', () => {
+      this.codemirror.on('cursorActivity',_.debounce(() => {
+        if (this.mark) {
+          this.mark.clear()
+        }
         const cursor = that.codemirror.getCursor();
         const line = cursor.line;
         let pos = cursor.ch;
@@ -79,9 +109,8 @@ export default {
         for (let i = 0; i < line; i++) {
           pos += that.codemirror.getLine(i).length + 1
         }
-
         that.$store.state.cursor = pos
-      })
+      }, 500))
     } else {
       Split([this.$refs['left'], this.$refs['right']], { sizes: [0, 100]})
     }
@@ -107,6 +136,7 @@ export default {
   height: 100%;
 }
 
+.diagram-as-code .vue-codemirror,
 .diagram-as-code .CodeMirror {
   height: 100%;
 }

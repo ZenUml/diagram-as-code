@@ -17,7 +17,7 @@
     methods: {
       onClickHandler() {
         let newCode = this.$store.state.code + '\n' + 'par {\n  A.method\n  B.method\n}\n'
-        this.$store.dispatch('updateCode', newCode);
+        this.$store.dispatch('updateCode', {code: newCode});
       }
     }
   }

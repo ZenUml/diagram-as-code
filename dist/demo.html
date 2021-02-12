@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<title>diagram-as-code demo</title>
+<script src="https://unpkg.com/vue"></script>
+<script src="./diagram-as-code.js"></script>
+
+
+<diagram-as-code show-editor="true">&lt;&lt;Service&gt;&gt; BookService
+BookService.GetBook() {
+  par {
+    Library1.search()
+    Library2.search()
+    opt {
+      Library3.serach()
+    }
+  }
+}
+</diagram-as-code>
+

@@ -1,6 +1,6 @@
 {
   "name": "diagram-as-code.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "scripts": {
     "start": "vue-cli-service serve",
@@ -26,7 +26,7 @@
     "split.js": "^1.6.1",
     "vue": "^2.6.11",
     "vue-codemirror": "^4.0.6",
-    "vue-sequence": "^1.0.118",
+    "vue-sequence": "^1.0.126",
     "vue-template-compiler": "^2.6.11",
     "vuex": "^3.4.0"
   },

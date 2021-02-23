@@ -93,7 +93,11 @@ export default {
       }, {css: 'background: gray'})
     })
     setTimeout(() => {
-      let code = that.$slots?.default?.[0]?.text || 'Example.method(1)'
+      let defaultMessage = `// Async message
+Client->Server: Client Hello
+// Sync Message (Client is optional)
+Client->Service.GetOrder(id)`
+      let code = that.$slots?.default?.[0]?.text || defaultMessage
       that.$store.dispatch('updateCode', {code})
     })
     if (this.showEditor) {

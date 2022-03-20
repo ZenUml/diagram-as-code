@@ -10,7 +10,7 @@
       />
     </div>
     <div ref="right" class="split">
-      <SeqDiagram/>
+      <DiagramFrame/>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@
 <script>
 import vue from 'vue'
 import vuex from 'vuex'
-import {Store, SeqDiagram, BuildTime, Version} from 'vue-sequence'
+import {VueSequence} from 'vue-sequence'
 import {codemirror} from 'vue-codemirror'
 import Split from 'split.js'
 import Toolbox from './Toolbox'
@@ -28,6 +28,10 @@ import _ from 'lodash'
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/addon/edit/closebrackets.js'
 
+const Store = VueSequence.Store
+const DiagramFrame = VueSequence.DiagramFrame
+const BuildTime = VueSequence.BuildTime
+const Version = VueSequence.Version
 vue.use(vuex)
 
 const EventBus = new vue()
@@ -120,7 +124,7 @@ Client->Service.GetOrder(id)`
     }
   },
   components: {
-    SeqDiagram,
+    DiagramFrame,
     codemirror,
     Toolbox
   }
